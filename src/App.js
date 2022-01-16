@@ -13,8 +13,8 @@ const App = () => {
 
   const fetchImageData = async () => {
     const response = await fetch('https://mars-photos.herokuapp.com/api/v1/rovers/Curiosity/photos?sol=2023&page=1')
-    const responseJSON = await response.json()
-    setImages(responseJSON.photos)
+    const responseJson = await response.json()
+    setImages(responseJson.photos)
   }
 
 
