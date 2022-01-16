@@ -4,10 +4,24 @@ import Header from './Components/Header/Header';
 import Gallery from './Components/Gallery/Gallery';
 
 const App = () => {
+
+  const [images, setImages] = useState ([]);
+
+  useEffect( () => {
+    fetchImageData();
+  }, [])
+
+  const fetchImageData = async () => {
+    const response = await fetch('https://mars-photos.herokuapp.com/api/v1/rovers/Curiosity/photos?sol=2023&page=1')
+    const responseJSON = await response.json()
+    setImages(responseJSON.photos)
+  }
+
+
   return (
     <div className="App">
       <Header/> 
-      <Gallery/>
+      <Gallery images={images}/>
     </div>
   );
 }
