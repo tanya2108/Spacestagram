@@ -1,17 +1,26 @@
+.card {
+  text-align: center;
+}
+
+.image-card {
+  height: 80vh;
+  width: 60vh;
+}
+
 button {
-    border: none;
+    border: 2px red solid ;
+    position: absolute;
     outline: none;
     padding: 10px 16px;
     font-weight: bold;
-    cursor: pointer;
-   
+    cursor: pointer;   
 }
 
-.grey {
-    background-color: lightgrey;
+.yellow {
+    background-color: lightyellow;
   }
   
-.aqua {
-    background-color: aqua;
+.pink {
+    background-color: palevioletred ;
     color: white;
 }

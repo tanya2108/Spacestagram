@@ -15,10 +15,10 @@ const Card = ({id, earth_date, sol, camera, roverName, url}) => {
 
   return (
     <div className="card">
+      <button className={likeData === true ? "pink" : "yellow"} onClick={() => handleClick()}>Like</button>
       <img className="image-card" src={url} alt={"an image of Mars taken by" + roverName} id={id}/>
-      <h1>{roverName + " Rover - " + camera}</h1>  
+      <h3>{roverName + " Rover - " + camera}</h3>  
       <p>Date Captured: {earth_date}</p>
-      <button className={likeData === true ? "aqua" : "grey"} onClick={() => handleClick()}>Like</button>
     </div>
   );
 }
