@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './App.scss';
+import Header from './Components/Header/Header';
+import Gallery from './Components/Gallery/Gallery';
 
-function App() {
+const App = () => {
+
+  const [images, setImages] = useState ([]);
+
+  useEffect( () => {
+    fetchImageData();
+  }, [])
+
+  const fetchImageData = async () => {
+    const response = await fetch('https://mars-photos.herokuapp.com/api/v1/rovers/Curiosity/photos?sol=2023&page=1')
+    const responseJson = await response.json()
+    setImages(responseJson.photos)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/> 
+      <Gallery images={images}/>
     </div>
   );
 }
